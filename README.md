@@ -4,18 +4,12 @@
 [![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-green)](https://en.wikipedia.org/wiki/SystemVerilog)
 [![License](https://img.shields.io/badge/License-Educational-orange)](LICENSE)
 
-A clean, modern implementation of a 32-bit RISC-V processor core in SystemVerilog with comprehensive testbenches and industry-standard verification.
+Implementation of a 32-bit RISC-V processor core in SystemVerilog with comprehensive testbenches and industry-standard verification.
 
-## 🚀 Features
+## Features
 
-- ✅ **RV32I Base Integer Instruction Set**
-- ✅ **Single-cycle execution architecture**
-- ✅ **Industry-standard SystemVerilog (.sv)**
-- ✅ **Comprehensive self-checking testbenches**
-- ✅ **Modular and parameterized design**
-- ✅ **Built-in assertions for verification**
-- ✅ **Full simulation and waveform support**
-- ✅ **Automated build system (Makefile)**
+- **RV32I Base Integer Instruction Set**
+- **Single-cycle execution architecture**
 
 ## 📋 Table of Contents
 
@@ -23,13 +17,12 @@ A clean, modern implementation of a 32-bit RISC-V processor core in SystemVerilo
 - [Quick Start](#quick-start)
 - [Directory Structure](#directory-structure)
 - [Supported Instructions](#supported-instructions)
-- [Simulation](#simulation)
 - [Verification](#verification)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Contributing](#contributing)
 
-## 🏗️ Architecture
+## Architecture
 
 The processor implements a classic single-cycle RISC-V architecture:
 
@@ -57,7 +50,7 @@ The processor implements a classic single-cycle RISC-V architecture:
 | **Decode Unit** | Instruction decoder | `rtl/decode_unit.sv` |
 | **RISC-V Core** | Top-level integration | `rtl/riscv_core.sv` |
 
-## � Using with Vivado
+## Using with Vivado
 
 ### Creating a Vivado Project
 
@@ -83,28 +76,8 @@ The processor implements a classic single-cycle RISC-V architecture:
 **Recommended Settings:**
 - **Simulation Time**: 10 ms (or until testbench finishes)
 - **Language**: SystemVerilog
-- **Simulator**: Xsim (included with Vivado)
 
-### Viewing Results
-
-The testbenches are self-checking and will display:
-```
-=================================================================
-ALU Testbench Started
-=================================================================
-[PASS] Test 1: AND | Result=0x0000FFFF (Expected=0x0000FFFF)
-[PASS] Test 2: ADD | Result=0x0000012C (Expected=0x0000012C)
-...
-=================================================================
-Total Tests: 1000
-Passed:      1000
-Failed:      0
-Pass Rate:   100.00%
-=================================================================
-*** ALL TESTS PASSED ***
-```
-
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 RISC-V-Processor/
@@ -131,7 +104,7 @@ RISC-V-Processor/
 └── README.md              # This file
 ```
 
-## 📝 Supported Instructions
+## Supported Instructions
 
 ### Arithmetic & Logic (R-Type)
 ```assembly
@@ -164,69 +137,32 @@ JAL  rd, offset         # rd = PC+4; PC += offset
 JALR rd, rs1, offset    # rd = PC+4; PC = rs1 + offset
 ```
 
-## 🧪 Simulation
-
-### Using Makefile
-
-```bash
-# Compile and simulate ALU
-make alu
-
-# Compile and simulate complete core
-make riscv_core
-
-# View waveform
-make wave_riscv_core
-```
-
-## ✅ Verification
+## Verification
 
 Each module includes comprehensive testbenches:
 
 ### ALU Testbench (`tb/tb_alu.sv`)
-- ✓ All 9 operations tested
-- ✓ 1000+ random test cases
-- ✓ Edge cases (overflow, zero, max values)
-- ✓ Flag verification
+- All 9 operations tested
+- Edge cases (overflow, zero, max values)
+- Flag verification
 
 ### Register File Testbench (`tb/tb_register_file.sv`)
-- ✓ Initial value verification
-- ✓ x0 hardwired to zero test
-- ✓ Dual-port read verification
-- ✓ Write-enable control
-- ✓ 100+ random access patterns
+- Initial value verification
+- x0 hardwired to zero test
+- Dual-port read verification
+- Write-enable control
 
 ### Core Testbench (`tb/tb_riscv_core.sv`)
-- ✓ Complete program execution
-- ✓ Register state verification
-- ✓ PC progression tracking
-- ✓ Instruction monitoring
+- Complete program execution
+- Register state verification
+- PC progression tracking
+- Instruction monitoring
 
-### Test Coverage
-
-| Module | Tests | Pass Rate |
-|--------|-------|-----------|
-| ALU | 1000+ | 100% |
-| Register File | 200+ | 100% |
-| Instruction Memory | 50+ | 100% |
-| RISC-V Core | 10+ | 100% |
-
-## 📖 Documentation
+## Documentation
 
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Detailed design documentation
-- **[TRANSFORMATION.md](docs/TRANSFORMATION.md)** - Explains code reorganization
-- **[QUICKSTART.md](docs/QUICKSTART.md)** - Quick reference guide
-- **Inline Comments** - Every module has detailed comments
 
-## 🎯 Design Principles
-
-1. **Clean Code**: Modern SystemVerilog with clear naming
-2. **Modularity**: Each component is independent and reusable
-3. **Verification First**: Comprehensive testbenches for all modules
-4. **Parameterization**: Configurable data widths and sizes
-5. **Industry Standards**: Following best practices and conventions
-
-## 🛠️ Development
+## Development
 
 ### Adding New Instructions
 
@@ -243,34 +179,15 @@ Each module includes comprehensive testbenches:
 - **Interrupts**: Implement interrupt handling logic
 - **Peripherals**: Add memory-mapped I/O
 
-## 📊 Performance
+## Performance
 
 - **Architecture**: Single-cycle
 - **CPI**: 1 (one cycle per instruction)
-- **Target Frequency**: ~100 MHz on modern FPGAs
 - **Resource Usage**: Minimal (suitable for small FPGAs)
 
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-1. Follow existing code style
-2. Add testbenches for new features
-3. Update documentation
-4. Ensure all tests pass
-
-## 📄 License
+## License
 
 This project is for educational purposes.
-
-## 🙏 Acknowledgments
-
-- RISC-V Foundation for the open ISA
-- Original implementation inspiration (completely rewritten)
-- SystemVerilog community for best practices
-
-## 📞 Contact
-
-For questions or suggestions, please open an issue on the repository.
 
 ## 🗺️ Roadmap
 
